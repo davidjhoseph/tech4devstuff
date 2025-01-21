@@ -7,7 +7,6 @@
             </button>
         </div>
         <div class="flex-1 h-full p-10 ml-20 overflow-auto">
-            <CounterComponent/>
             <ComponentA />
             <ComponentB />
             <slot />
@@ -19,9 +18,8 @@
 import {HomeIcon, ContactIcon, CardIcon} from '@/components/icons';
 import ComponentA from '@/components/general/ComponentA.vue';
 import ComponentB from '@/components/general/ComponentB.vue';
-import CounterComponent from '@/components/general/CounterComponent.vue';
 export default {
-    components: { HomeIcon, ContactIcon, CounterComponent, CardIcon, ComponentA, ComponentB },
+    components: { HomeIcon, ContactIcon, CardIcon, ComponentA, ComponentB },
     data(){
         return {
             active: true,
