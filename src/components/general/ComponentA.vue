@@ -1,6 +1,6 @@
 <template>
     <div>
-        Component A {{counter}}
+        Component A
     </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
         }
     },
     mounted() {
-        this.$store.dipatch('fetchProducts')
+        // this.$store.dipatch('product/fetchProducts')
     }
 }
 </script>

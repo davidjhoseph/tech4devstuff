@@ -1,14 +1,16 @@
 <template>
     <div class="flex">
-        <div class="flex flex-col items-center w-20 py-10 space-y-10" >
-            <button v-for="route in routes" @click="goToRoute(route.route)" class="w-6 h-6" :class="activeRoute === route.route ? 'text-green-800' : 'text-red-800' ">
+        <div class="flex flex-col items-center w-20 py-10 space-y-10">
+            <button v-for="route in routes" @click="goToRoute(route.route)" class="w-6 h-6"
+                :class="activeRoute === route.route ? 'text-green-800' : 'text-red-800' ">
                 <component :is="route.icon" />
             </button>
         </div>
         <div class="flex-1 h-full p-10 ml-20 overflow-auto">
-            <ComponentA/>
+            <CounterComponent/>
+            <ComponentA />
             <ComponentB />
-            <slot/>
+            <slot />
         </div>
     </div>
 </template>
@@ -17,8 +19,9 @@
 import {HomeIcon, ContactIcon, CardIcon} from '@/components/icons';
 import ComponentA from '@/components/general/ComponentA.vue';
 import ComponentB from '@/components/general/ComponentB.vue';
+import CounterComponent from '@/components/general/CounterComponent.vue';
 export default {
-    components: { HomeIcon, ContactIcon, CardIcon, ComponentA, ComponentB },
+    components: { HomeIcon, ContactIcon, CounterComponent, CardIcon, ComponentA, ComponentB },
     data(){
         return {
             active: true,
