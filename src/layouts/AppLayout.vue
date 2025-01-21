@@ -1,14 +1,8 @@
 <template>
     <div class="flex">
         <div class="flex flex-col items-center w-20 py-10 space-y-10" >
-            <button @click="goToRoute('home')" class="w-6 h-6" :class="activeRoute === 'home' ? 'text-green-800' : 'text-red-800' ">
-                <HomeIcon />
-            </button>
-            <button @click="goToRoute('contact')" class="w-6 h-6" :class="activeRoute === 'contact' ? 'text-green-800' : 'text-red-800' ">
-                <ContactIcon />
-            </button>
-            <button @click="goToRoute('card')" class="w-6 h-6" :class="activeRoute === 'card' ? 'text-green-800' : 'text-red-800' ">
-                <CardIcon />
+            <button v-for="route in routes" @click="goToRoute(route.route)" class="w-6 h-6" :class="activeRoute === route.route ? 'text-green-800' : 'text-red-800' ">
+                <component :is="route.icon" />
             </button>
         </div>
         <div class="flex-1 h-full p-10 ml-20 overflow-auto">
@@ -28,6 +22,23 @@ export default {
     data(){
         return {
             active: true,
+            routes: [
+                {
+                    name: 'Home',
+                    icon: 'HomeIcon',
+                    route: 'home'
+                },
+                {
+                    name: 'Contact',
+                    icon: 'ContactIcon',
+                    route: 'contact'
+                },
+                {
+                    name: 'Card',
+                    icon: 'CardIcon',
+                    route: 'card'
+                },
+            ]
         }
     },
     computed: {
@@ -53,7 +64,10 @@ export default {
     methods: {
         goToRoute(name) {
             this.$router.push({name})
-        }
+        },
+        // isActiveRoute(route) {
+
+        // }
     }
 }
 </script>

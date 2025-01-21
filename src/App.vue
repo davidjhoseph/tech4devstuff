@@ -18,7 +18,10 @@ export default {
   computed: {
     currentLayout() {
       return this.$route.path.includes('auth') ? 'AuthLayout' : 'AppLayout';
-    }
+    },
+    // isAuthPage() {
+    //   return this.$route.path.includes('auth')
+    // }
   }
 }
 </script>
@@ -28,9 +31,9 @@ export default {
     <RouterView />
   </component> -->
   <div class="flex">
-    <AppLayout>
+    <component :is="currentLayout">
       <RouterView/>
-    </AppLayout>
+    </component>
   </div>
 </template>
 

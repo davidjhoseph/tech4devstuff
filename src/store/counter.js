@@ -7,7 +7,11 @@ const counterStore = {
       state.counter = data;
     },
   },
-  actions: {},
+  actions: {
+    increaseCounter({commit}, ) {
+      commit('increaseCounter', state.counter + 1)
+    }
+  },
   getters: {
     getCounter(state) {
       return state.counter;

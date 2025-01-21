@@ -7,9 +7,12 @@
 <script>
 export default {
     computed: {
-        counter() {
-            return this.$store.getters['getCounter'];
+        products() {
+            return this.$store.getters['getProducts'];
         }
+    },
+    mounted() {
+        this.$store.dipatch('fetchProducts')
     }
 }
 </script>
